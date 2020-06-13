@@ -1,0 +1,29 @@
+<% include partials/header %>
+
+<!-- It's almost same as home page except this just display searched items. -->
+<!-- Styling is exactly identical -->
+
+<% if(result.length > 0) {
+     result.map(post => { %>
+<a class="noDecoration nav-item nav-link" href="/<%= post._id %>">
+    <div class="card post-card">
+        <h3><%= post.title %></h3>
+        <% if(post.body.length > 350) { %>
+        <p><%- post.body.substr(0, 350).replace(/\n/g,"<br>") %><emp>......</emp>
+        </p>
+        <a href="/<%= post._id %>">
+            <button class="btn btn-dark">Read More</button>
+        </a>
+        <% } else { %> <p><%- post.body.replace(/\n/g,"<br>") %></p>
+        <a href="/<%= post._id %>">
+            <button style="visibility: visible;" class="btn btn-dark">Read More</button>
+        </a>
+        <% } %>
+        <p style="margin-left: auto;">Posted on: <%= String(post.postedTime).slice(0,15) %></p>
+    </div>
+</a>
+<%    } ) } else { %>
+<h1>Error 404.. Post not found </h1>
+<%}%>
+
+<% include partials/footer %>

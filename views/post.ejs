@@ -1,0 +1,25 @@
+<% include partials/header %>
+
+
+<!-- Here each post is displayed seperately on single page when objectid is passed to url -->
+
+<a href="javascript:history.back()" style="margin-right: auto; margin-left: 2.5%;"><button class="btn btn-dark">Go
+        Back</button></a>
+<div class="card post-card">
+    <!-- Delete button to delete the post -->
+    <% if(post !== "error") {
+        const {_id, title, body} = post; %>
+    <form method="post" action="/delete" style="display: flex;justify-content: flex-end;">
+        <input name="id" type="hidden" value="<%= _id %>">
+        <button title="Delete Post" class="btn btn-dark"> Delete Post </button>
+    </form>
+    <br>
+    <h1> <%= title %> </h1>
+    <p class="text-justify"><%- String(body).replace(/\n/g,"<br>") %></p>
+    <p style="margin-left: auto;">Posted on: <%= String(post.postedTime).slice(0,21) %></p>
+    <% } else { %>
+    <h1>Something went wrong... Error 404.. Post not found </h1>
+    <% } %>
+</div>
+
+<% include partials/footer %>

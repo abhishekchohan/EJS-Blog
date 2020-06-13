@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+<h1 style="text-align: center;">Welcome to EJS Blog</h1>
+
+<!-- Iterating through posts array and displaying each post with standard styling -->
+<% posts.map(post=> { %>
+<a class="noDecoration nav-item nav-link" href="/<%= post._id %>">
+        <div class="card post-card">
+                <h3><%= post.title %> </h3>
+                <% if(post.body.length > 350) { %>
+                <!-- Replacing a long body data into 350 character long for tile displaying -->
+                <!-- then replacing all newline characters ino br tags and using < %- to print without escaping -->
+                <p><%- post.body.substr(0, 350).replace(/\n/g,"<br>") %><emp>......</emp>
+                </p>
+                <a href="/<%= post._id %>">
+                        <button class="btn btn-dark">Read More</button>
+                </a>
+                <% } else { %> <p><%- post.body.replace(/\n/g,"<br>") %></p>
+                <a href="/<%= post._id %>">
+                        <!-- buton visibility hidden to fix the card width issue -->
+                        <button style="visibility: visible;" class="btn btn-dark">Read More</button>
+                </a>
+                <% } %>
+                <p style="margin-left: auto;">Posted on: <%= String(post.postedTime).slice(0,21) %></p>
+        </div>
+</a>
+<% }) %>
+<% include partials/footer %>

@@ -1,0 +1,68 @@
+* {
+    font-size: 4vw;
+}
+body {
+    height: 100vh;
+}
+
+/* 
+
+body has 3 children child 1-3
+
+child1 is header
+child2 is content
+child3 is footer
+
+*/
+
+.child1 {
+    min-height: 3rem;
+    margin-bottom: 1rem;
+}
+.child2 {
+    min-height: calc(77.35vh);
+    text-align: justify;
+    font-size: 4vw;
+    padding: 3vw;
+}
+
+.child3 {
+    height: 3.6rem;
+}
+
+.post-card {
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 95%;
+}
+
+.noDecoration, a:link, a:visited, a:hover, a:link:active, a:visited:active {
+      text-decoration: none !important;
+      color: black;
+    }
+
+/* 
+
+Media query for high end compatibility / larger screens
+
+*/
+
+@media (min-width: 992px) {
+    * {
+        font-size: 1rem;
+    }
+    .child2 {
+        min-height: calc(100vh - 70.8px - 6.6rem);
+        width: 60%;
+        margin: 0 auto;
+        text-align: justify;
+    }
+    .child3 {
+        height: 70.8px;
+    }
+
+    .post-card {
+        padding: 1rem 4rem;
+    }
+    
+}
