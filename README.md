@@ -17,6 +17,9 @@ Blog app made from scratch using EJS template engine and express along with Mong
 ## Demo
 #### Live - https://ejsblog.herokuapp.com/
 
+![demo gif](blog_demo.gif)
+
+
 ## Run project on local host
 #### Note: nodejs and npm need to be installed before proceeding.
 - git clone or download repository.  (Note: git need to be installed if using git commands)
